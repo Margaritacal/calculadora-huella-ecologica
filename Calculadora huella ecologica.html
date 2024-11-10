@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huella Ecológica de la Explotación Minera de Arena</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #005f73;
+        }
+
+        .calculator-container {
+            background-color: #e0fbfc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #005f73;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #003d51;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #00796b;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Huella Ecológica de la Explotación Minera de Arena</h1>
+    <h2>Calcula el impacto ambiental de la extracción de arena en tu proyecto</h2>
+
+    <div class="image-container">
+        <!-- Imagen relacionada con la minería y el medio ambiente -->
+        <img src="https://www.example.com/imagen-mineria.jpg" alt="Explotación minera de arena" />
+    </div>
+
+    <div class="calculator-container">
+        <label for="water">Consumo de agua (litros):</label>
+        <input type="number" id="water" placeholder="Ingresa el consumo de agua">
+
+        <label for="co2">Emisiones de CO₂ (kg):</label>
+        <input type="number" id="co2" placeholder="Ingresa las emisiones de CO₂">
+
+        <label for="fuel">Uso de combustible (litros):</label>
+        <input type="number" id="fuel" placeholder="Ingresa el consumo de combustible">
+
+        <label for="area">Área afectada (m²):</label>
+        <input type="number" id="area" placeholder="Ingresa el área afectada">
+
+        <button onclick="calculateImpact()">Calcular Huella Ecológica</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateImpact() {
+            // Obtenemos los valores ingresados por el usuario
+            const water = parseFloat(document.getElementById("water").value) || 0;
+            const co2 = parseFloat(document.getElementById("co2").value) || 0;
+            const fuel = parseFloat(document.getElementById("fuel").value) || 0;
+            const area = parseFloat(document.getElementById("area").value) || 0;
+
+            // Calculamos el impacto para cada categoría
+            const waterImpact = water * 0.001; // Factor de impacto del agua
+            const co2Impact = co2 * 0.02; // Factor de impacto de CO₂
+            const fuelImpact = fuel * 0.05; // Factor de impacto del combustible
+            const areaImpact = area * 0.1; // Factor de impacto del área afectada
+
+            // Sumar los impactos
+            const totalImpact = (waterImpact + co2Impact + fuelImpact + areaImpact).toFixed(2);
+
+            // Mostrar el resultado
+            document.getElementById("result").innerHTML = 
+                "La huella ecológica total es de <strong>" + totalImpact + "</strong> unidades de impacto ambiental.";
+        }
+    </script>
+
+</body>
+</html>
